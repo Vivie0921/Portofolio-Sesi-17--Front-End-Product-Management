@@ -7,5 +7,7 @@ use App\Models\ProductCategory;
 
 class Product extends Model
 {
-    //
+    public function category(){
+        return $this->belongsTo(ProductCategory::class);
+    }
 }

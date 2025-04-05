@@ -1,6 +1,16 @@
 @extends('layout')
 @section('title','TechHunt E-Commerce')
 @section('content')
+
+<style>
+    .thumbnail_product {
+        background-position: center;
+        background-size: cover;
+        height: 400px;
+        width: 100%;
+    }
+</style>
+
     <!-- Hero Section -->
     <section class="hero d-flex align-items-center text-white">
         <div class="container">
@@ -20,43 +30,28 @@
     <div class="container mt-5">
         <h2 class="text-center mb-4">Katalog Produk</h2>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-            <!-- Produk 1 -->
-            <div class="col">
+            <!-- Produk -->
+            @foreach ($products as $product )
+            <div class="col-md-4 col-sm-6">
                 <div class="card h-100 product-card shadow-sm">
-                    <img src="{{ asset('images/headphonewireless.jpg') }}" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Headphone Wireless">
+                    <div class = "thumbnail_product" style="background-image: url({{ $product->image }});"></div>
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Headphone Wireless</h5>
-                        <p class="product-price fs-4">Rp 200.000</p>
-                        <p class="card-text">Headphone wireless adalah perangkat audio yang tidak menggunakan kabel, melainkan menggunakan frekuensi radio atau Bluetooth untuk mengirimkan sinyal suara.</p>
+                        <h5 class="card-title">{{ $product->name }}</h5>
+                        <p class="product-price fs-4">{{ $product->price }}</p>
+                        <p class="card-text">{{ $product->description }}</p>
                         <a href="#" class="btn btn-outline-primary mt-auto">Lihat Detail</a>
                     </div>
                 </div>
             </div>
-            <!-- Produk 2 -->
-            <div class="col">
-                <div class="card h-100 product-card shadow-sm">
-                    <img src="{{ asset('images/keyboardmechanical.jpg') }}" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Keyboard Mechanical">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Keyboard Mechanical</h5>
-                        <p class="product-price fs-4">Rp 550.000</p>
-                        <p class="card-text">Keyboard mekanik adalah keyboard yang menggunakan saklar fisik di bawah setiap tombol. Saklar ini terdiri dari pegas, batang, dan kontak elektrik. Saat ditekan, saklar akan aktif dan menghasilkan suara "klik".</p>
-                        <a href="#" class="btn btn-outline-primary mt-auto">Lihat Detail</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Produk 3 -->
-            <div class="col">
-                <div class="card h-100 product-card shadow-sm">
-                    <img src="{{ asset('images/mousegaming.jpg') }}" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Mouse Gaming">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Mouse Gaming</h5>
-                        <p class="product-price fs-4">Rp 150.000</p>
-                        <p class="card-text">Mouse gaming adalah perangkat input komputer yang dirancang khusus untuk meningkatkan pengalaman bermain game.</p>
-                        <a href="#" class="btn btn-outline-primary mt-auto">Lihat Detail</a>
-                    </div>
-                </div>
+            @endforeach
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                {{ $products->links() }}
             </div>
         </div>
+
     </div>
 
 @endsection
