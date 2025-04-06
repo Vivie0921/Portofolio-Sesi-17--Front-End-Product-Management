@@ -16,9 +16,25 @@
                 <li class="nav-item">
                     <a class="nav-link {{ request()->is('cart') ? 'active' : '' }}" href="{{ url('/cart') }}">Cart</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->is('contact') ? 'active' : '' }}" href="#contact">Contact</a>
-                </li>
+
+                @if (Route::has('login'))
+                    @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/dashboard') }}">Dashboard</a>
+                        </li>
+            
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Log In</a>
+                        </li>
+
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">Register</a>
+                            </li>
+                        @endif
+                    @endauth
+            @endif
             </ul>
         </div>
     </div>
