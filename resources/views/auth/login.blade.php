@@ -5,7 +5,9 @@
     <div class="flex flex-col md:flex-row w-full min-h-screen">
         <!-- Kiri: Logo -->
         <div class="w-full md:w-1/2 flex items-center justify-center bg-white p-6">
-            <img src="/images/techhunt.png" class="max-w-[600px] w-full h-auto" alt="TechHunt Logo">
+            <img src="/images/techhunt.png" 
+                class="max-w-[600px] w-full h-auto max-h-[90vh] object-contain" 
+                alt="TechHunt Logo">
           </div>    
 
             <!-- Kanan: Form login -->
@@ -58,7 +60,7 @@
                     @endif
 
                     <x-primary-button class="ms-3">
-                        {{ __('Log in') }}
+                        {{ __('Log In') }}
                     </x-primary-button>
                 </div>
 
