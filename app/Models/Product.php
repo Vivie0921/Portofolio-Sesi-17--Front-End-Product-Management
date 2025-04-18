@@ -7,7 +7,10 @@ use App\Models\ProductCategory;
 
 class Product extends Model
 {
-    public function category(){
-        return $this->belongsTo(ProductCategory::class);
+    protected $fillable =['name','price','category_id'];
+    
+    public function category()
+    {
+        return $this->belongsTo(ProductCategory::class,'product_category_id');
     }
 }

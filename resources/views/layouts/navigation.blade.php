@@ -1,24 +1,24 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-gray-900 text-white shadow">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}" class="text-xl font-bold text-primary">
+                    <a href="{{ route('dashboard') }}" class="text-xl font-bold text-white">
                         TechHunt
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-white hover:text-gray-300">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('products')" :active="request()->routeIs('products')">
+                    <x-nav-link :href="route('product.index')" :active="request()->routeIs('product.*')" class="text-white hover:text-gray-300">
                         {{ __('Produk') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('category-products')" :active="request()->routeIs('category-products')">
+                    <x-nav-link :href="route('product-category.index')" :active="request()->routeIs('product-category.*')" class="text-white hover:text-gray-300">
                         {{ __('Kategori Produk') }}
                     </x-nav-link>
                 </div>

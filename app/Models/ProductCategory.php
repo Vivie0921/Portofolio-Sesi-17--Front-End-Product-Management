@@ -7,8 +7,9 @@ use App\Models\Product;
 
 class ProductCategory extends Model
 {
-    public function product()
+    protected $fillable = ['name'];
+    public function products()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Product::class,'product_category_id');
     }
 }
